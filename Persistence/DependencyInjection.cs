@@ -1,7 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Application.Interfaces.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Contexts;
+using Persistence.Repositories;
 
 namespace Persistence
 {
@@ -15,7 +17,10 @@ namespace Persistence
               .EnableSensitiveDataLogging()
               .EnableDetailedErrors());
 
-          //  services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
+           services.AddTransient(typeof(IGenericRepositoryAsync<>), typeof(GenericRepositoryAsync<>));
+           services.AddTransient<IBrandRepositoryAsync, BrandRepositoryAsync>();
+           services.AddTransient<IModelRepositoryAsync, ModelRepositoryAsync>();
+            services.AddTransient<ICarRepositoryAsync, CarRepositoryAsync>();
         }
     }
 }
