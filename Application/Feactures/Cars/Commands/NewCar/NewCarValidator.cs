@@ -10,7 +10,7 @@ namespace Application.Feactures.Cars.Commands.NewCar
             RuleFor(s => s.NewCarDto.Year).NotEmpty().NotNull().WithMessage("El año es requerido");
             RuleFor(s => s.NewCarDto.Color).NotEmpty().NotNull().WithMessage("El color es requerido");
             RuleFor(s => s.NewCarDto.VIN).NotEmpty().NotNull().WithMessage("El VIN es requerido");
-            RuleFor(s => s.NewCarDto.Mileage).NotEmpty().NotNull().WithMessage("El Kilometraje es requerido");
+            RuleFor(s => s.NewCarDto.Mileage).NotNull().WithMessage("El Kilometraje es requerido");
         }
     }
 }
