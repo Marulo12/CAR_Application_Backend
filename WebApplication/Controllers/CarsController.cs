@@ -1,5 +1,6 @@
 ﻿using Application.DTOs.Car;
 using Application.Feactures.Cars.Commands.DeleteCarById;
+using Application.Feactures.Cars.Commands.NewCar;
 using Application.Feactures.Cars.Commands.UpdateCarById;
 using Application.Feactures.Cars.Queries.GetCarById;
 using Application.Feactures.Cars.Queries.GetCars;
@@ -38,7 +39,14 @@ namespace WebApp.Controllers
         [Route("update-car")]
         public async Task<IActionResult> UpdateCard([FromBody] UpdateCarDTO updateCarDTO)
         {
-            return Ok(await Mediator.Send(new UpdateCar { updateCar = updateCarDTO }));
+            return Ok(await Mediator.Send(new UpdateCar { UpdateCarDTO = updateCarDTO }));
+        }
+
+        [HttpPost]
+        [Route("new-car")]
+        public async Task<IActionResult> NewCar([FromBody] NewCarDTO  newCarDTO)
+        {
+            return Ok(await Mediator.Send(new NewCar { NewCarDto = newCarDTO }));
         }
     }
 }

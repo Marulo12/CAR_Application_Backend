@@ -16,6 +16,7 @@ namespace Application.Mapping
                 .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.BrandNavigation))
                 .ForMember(dest => dest.Model, opt => opt.MapFrom(src => src.ModelNavigation))
                 .ReverseMap();
+            CreateMap<NewCarDTO, Car>();
         }
     }
 }

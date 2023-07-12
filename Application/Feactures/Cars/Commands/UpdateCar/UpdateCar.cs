@@ -12,7 +12,7 @@ namespace Application.Feactures.Cars.Commands.UpdateCarById
 {
     public class UpdateCar : IRequest<IResponse<CarDTO>>
     {
-        public UpdateCarDTO updateCar { get; set; } = null!;
+        public UpdateCarDTO UpdateCarDTO { get; set; } = null!;
     }
 
     public class UpdateCarByIdHandler : IRequestHandler<UpdateCar, IResponse<CarDTO>>
@@ -30,7 +30,7 @@ namespace Application.Feactures.Cars.Commands.UpdateCarById
         {
             try
             {
-                var car = await carRepositoryAsync.GetByIdAsync(request.updateCar.Id, new List<Expression<Func<Car, object>>>()
+                var car = await carRepositoryAsync.GetByIdAsync(request.UpdateCarDTO.Id, new List<Expression<Func<Car, object>>>()
                      {
                          s =>  s.BrandNavigation,
                          s =>  s.ModelNavigation
@@ -41,13 +41,13 @@ namespace Application.Feactures.Cars.Commands.UpdateCarById
                     return new Response<CarDTO>("No existe un automovil con ese id", false);
                 }
 
-                car.Year = request.updateCar.Year;
-                car.IdBrand = request.updateCar.IdBrand;
-                car.Price = request.updateCar.Price;
-                car.Color = request.updateCar.Color;
-                car.IdModel = request.updateCar.IdModel;
-                car.VIN = request.updateCar.VIN;
-                car.Mileage = request.updateCar.Mileage;
+                car.Year = request.UpdateCarDTO.Year;
+                car.IdBrand = request.UpdateCarDTO.IdBrand;
+                car.Price = request.UpdateCarDTO.Price;
+                car.Color = request.UpdateCarDTO.Color;
+                car.IdModel = request.UpdateCarDTO.IdModel;
+                car.VIN = request.UpdateCarDTO.VIN;
+                car.Mileage = request.UpdateCarDTO.Mileage;
 
                 await carRepositoryAsync.UpdateAsync(car);
 
