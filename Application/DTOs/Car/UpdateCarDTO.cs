@@ -1,9 +1,7 @@
-﻿using Application.DTOs.Brand;
-using Application.DTOs.Model;
-
+﻿
 namespace Application.DTOs.Car
 {
-    public class CarDTO
+    public class UpdateCarDTO
     {
         public long Id { get; set; }
         public double? Price { get; set; }
@@ -11,7 +9,7 @@ namespace Application.DTOs.Car
         public string Color { get; set; } = null!;
         public int Mileage { get; set; }
         public string VIN { get; set; } = null!;
-        public ModelDTO Model { get; set; } = null!;
-        public BrandDTO Brand { get; set; } = null!;
+        public long IdModel { get; set; } 
+        public long IdBrand { get; set; } 
     }
 }

@@ -13,8 +13,8 @@ namespace Application.Mapping
            CreateMap<Brand, BrandDTO>().ReverseMap();
            CreateMap<Model, ModelDTO>().ReverseMap();
            CreateMap<Car, CarDTO>()
-                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.BrandNavigation.Name.ToUpper()))
-                .ForMember(dest => dest.Model, opt => opt.MapFrom(src => src.ModelNavigation.Name.ToUpper()))
+                .ForMember(dest => dest.Brand, opt => opt.MapFrom(src => src.BrandNavigation))
+                .ForMember(dest => dest.Model, opt => opt.MapFrom(src => src.ModelNavigation))
                 .ReverseMap();
         }
     }
